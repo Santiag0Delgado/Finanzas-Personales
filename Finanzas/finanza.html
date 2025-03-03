@@ -1,0 +1,174 @@
+
+<!-- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Finanzas</title>
+  <link rel="stylesheet" href="fin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Finanzas Personales</h1>
+
+    <div class="form-container">
+      <h2>Agregar Transacción</h2>
+      <label for="fecha">Fecha (YYYY-MM-DD):</label>
+      <input type="date" id="fecha">
+
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion">
+
+      <label for="monto">Monto:</label>
+      <input type="number" id="monto" step="0.01">
+
+      <label for="tipo">Tipo:</label>
+      <select id="tipo">
+        <option value="ingreso">Ingreso</option>
+        <option value="gasto">Gasto</option>
+      </select>
+
+      <button id="agregarBtn">Agregar Transacción</button>
+    </div>
+
+    <div class="balance">
+      <button id="mostrarBalance">Mostrar Balance</button>
+      <p id="balanceInfo"></p>
+    </div>
+
+    <div class="grafico">
+      <button id="graficoBtn">Generar Gráfico</button>
+      <canvas id="graficoCanvas" width="400" height="200"></canvas>
+    </div>
+
+    <div class="transacciones">
+      <h2>Lista de Transacciones</h2>
+      <table id="transaccionesTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Monto</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="finanza.js"></script>
+  
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Finanzas</title>
+  <link rel="stylesheet" href="fin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Finanzas Personales</h1>
+
+    <div class="form-container">
+    <h2>Agregar Transacción</h2>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha">
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion">
+
+    <label for="monto">Monto:</label>
+    <input type="number" id="monto">
+
+    <label for="tipo">Tipo:</label>
+    <select id="tipo" onchange="mostrarSelectorDeuda()">
+        <option value="">Seleccione</option>
+        <option value="ingreso">Ingreso</option>
+        <option value="gasto">Gasto</option>
+    </select>
+
+    <!-- Este campo se mostrará solo si se elige "Gasto" -->
+    <div id="deudaSelector" style="display: none;">
+        <label for="deudaAsociada">Seleccionar deuda:</label>
+        <select id="deudaAsociada">
+            <option value="">Ninguna</option>
+        </select>
+    </div>
+
+    <button id="agregarBtn">Agregar Transacción</button>
+</div>
+
+
+    <div class="balance">
+      <button id="mostrarBalance">Mostrar Balance</button>
+      <p id="balanceInfo"></p>
+    </div>
+
+    <div class="grafico">
+      <button id="graficoBtn">Generar Gráfico</button>
+      <canvas id="graficoCanvas" width="400" height="200"></canvas>
+    </div>
+
+    <div class="transacciones">
+      <h2>Lista de Transacciones</h2>
+      <table id="transaccionesTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Monto</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Las transacciones se agregarán aquí -->
+        </tbody>
+      </table>
+    </div>
+<br><br>
+    <div class="deudas">
+      <h2>Registrar Deuda</h2>
+      <label for="fechaDeuda">Fecha (YYYY-MM-DD):</label>
+      <input type="date" id="fechaDeuda">
+
+      <label for="descripcionDeuda">Descripción:</label>
+      <input type="text" id="descripcionDeuda">
+
+      <label for="montoDeuda">Monto:</label>
+      <input type="number" id="montoDeuda" step="0.01">
+
+      <button id="agregarDeudaBtn">Agregar Deuda</button>
+    </div>
+
+    <div class="lista-deudas">
+      <h2>Lista de Deudas</h2>
+      <table id="deudasTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Las deudas se agregarán aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="finanza.js"></script>
+</body>
+</html>
