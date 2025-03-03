@@ -167,6 +167,7 @@ function generarGrafico() {
 }
 
 // Agregar eventos a los botones
+document.getElementById('mostrarBalance').addEventListener('click', mostrarBalance);
 document.getElementById('agregarDeudaBtn').addEventListener('click', agregarDeuda);
 document.getElementById('agregarBtn').addEventListener('click', agregarTransaccion);
 document.getElementById('tipo').addEventListener('change', mostrarSelectorDeuda);
